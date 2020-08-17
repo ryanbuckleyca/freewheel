@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+Faker::Config.locale = 'en-CA'
+
+User.create(id: 1,
+            email: "ryanbuckley@gmail.com",
+            first_name: "Ryan",
+            last_name: "Buckley",
+            phone_number: "(347) 272-0159")
+
+50.times do
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  email = Faker::Internet.email
+  phone_number = Faker::PhoneNumber.cell_phone
+  User.create(id: 1,
+              email: email,
+              first_name: first_name,
+              last_name: last_name,
+              phone_number: phone_number)
+end
