@@ -19,9 +19,13 @@ User.create(id: 1,
   last_name = Faker::Name.last_name
   email = Faker::Internet.email
   phone_number = Faker::PhoneNumber.cell_phone
-  User.create(id: 1,
+  password = [*('A'..'Z')].sample(8).join
+  new_user = User.new(
               email: email,
               first_name: first_name,
               last_name: last_name,
-              phone_number: phone_number)
+              phone_number: phone_number,
+              password: password
+              )
+  new_user.save!
 end
