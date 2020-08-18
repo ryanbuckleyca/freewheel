@@ -1,0 +1,31 @@
+<h1>All Rentals</h1>
+<% @rentals.each do |rental| %>
+  <h2>Rental #<%= rental.id %></h2>
+  <ul>
+    <li>User #<%= rental.user.id %>:
+      <ul>
+        <li><%= rental.user.first_name %></li>
+        <li><%= rental.user.last_name %></li>
+        <li><%= rental.user.phone_number %></li>
+        <li><%= rental.user.email %></li>
+      </ul>
+    </li>
+    <li>Bike #<%= rental.bike.id %>:
+      <ul>
+        <li>frame_size: <%= rental.bike.frame_size %></li>
+        <li>seat_count: <%= rental.bike.seat_count %></li>
+        <li>bike_type: <%= rental.bike.bike_type %></li>
+        <li>year: <%= rental.bike.year %></li>
+        <li>brand: <%= rental.bike.brand %></li>
+        <li>price: <%= rental.bike.price %></li>
+        <li>location: <%= rental.bike.location %></li>
+        <li>available_for_rent: <%= rental.bike.available_for_rent %></li>
+      </ul>
+    </li>
+    <li>rental_start: <%= rental.rental_start %></li>
+    <li>rental_end: <%= rental.rental_end %></li>
+    <li>booking_confirmed: <%= rental.booking_confirmed %></li>
+    <li>bike_returned: <%= rental.bike_returned %></li>
+    <li>message: <%= rental.message %></li>
+  </ul>
+<% end %>
