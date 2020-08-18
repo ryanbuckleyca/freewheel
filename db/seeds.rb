@@ -10,6 +10,7 @@ Faker::Config.locale = 'en-CA'
 
 User.destroy_all
 Bike.destroy_all
+Rental.destroy_all
 
 USER_RYAN = User.create(id: 1, email: 'ryanbuckley@gmail.com',
                         first_name: 'Ryan', last_name: 'Buckley',
@@ -40,9 +41,12 @@ def generate_users
   new_user.save!
 end
 
+puts 'generating users...'
 10.times do
   generate_users
 end
+puts '10 users generated'
+
 
 def generate_bikes
   seats = rand(1) < 0.9 ? 1 : 2
@@ -55,7 +59,38 @@ def generate_bikes
   new_bike.save!
 end
 
+puts 'generating bikes...'
 30.times do
   generate_bikes
 end
+puts '30 bikes generated...'
+
+
+def generate_rentals
+    user = User.all.sample
+    bike = Bike.all.sample
+    message = [Faker::Quote.famous_last_words,
+               'Hey! Love this bike. Looking forward to zipping around!',
+               'Coooool. Glad I found this!',
+               'Hell yeah, sweet wheels!',
+               'Do you mind if I take this off-roading?',
+               'Hiii, is the seat adjustable at all on this? I am 80cm and not sure it would fit otherwise.']
+    rental_start = DateTime.new(2020, rand(8..10), rand(1..29),
+                                rand(9..20), [00, 15, 30, 45].sample, 0)
+    rental_length = (30 * rand(672)).minutes
+    new_rental = Rental.new(rental_start: rental_start,
+                            rental_end: rental_start + rental_length,
+                            booking_confirmed: false,
+                            bike_returned: false,
+                            message: message.sample)
+    new_rental.bike = bike
+    new_rental.user = user
+    new_rental.save!
+end
+
+puts 'generating rentals...'
+15.times do
+  generate_rentals
+end
+puts '15 rentals generated...'
 
