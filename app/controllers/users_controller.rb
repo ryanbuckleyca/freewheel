@@ -1,5 +1,6 @@
-class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
-  def home
-  end
+class UsersController < ApplicationController
+  def destroy 
+    @user = User.find(params[:id])
+    @user.destroy
+
 end
