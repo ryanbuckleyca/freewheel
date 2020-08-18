@@ -1,6 +1,6 @@
 class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home, :bikes ]
-  
+
   def index
     @bikes = Bike.all
   end
@@ -14,5 +14,6 @@ class BikesController < ApplicationController
 
   def bike_params
     # params.require(:bike).permit()
+    # in case we need to allow params.
   end
 end
