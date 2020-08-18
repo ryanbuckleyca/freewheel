@@ -1,11 +1,30 @@
 <h1>All Bikes</h1>
 
 <div class="container">
-  <ul>
+  <div class="row">
     <% @bikes.each do |bike| %>
-    <div class="row" class="col-sm-4">
-      <img src="<%= bike.photo %>" class="border">
+    <div class="col-sm-12 col-md-6 d-flex align-content-stretch">
+      <div class="card p-0 flex-grow-1">
+
+        <div class="d-flex p-0">
+          <img src="https://source.unsplash.com/100x100/?bike,<%= bike.brand %>">
+          <div class="card-info d-flex flex-column flex-grow-1 p-3">
+            <div class="flex-grow-1">
+              <%= bike.year %>
+              <%= bike.brand %>
+              <%= bike.bike_type  %><br>
+              <%= bike.seat_count %> seater
+              <%= bike.location %>
+            </div>
+            <div class="d-flex justify-content-between">
+              <%= bike.available_for_rent ? "Available" : "Unavailable" %>
+              <strong>$<%= bike.price %></strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
     <% end  %>
-  </ul>
+  </div>
 </div>
