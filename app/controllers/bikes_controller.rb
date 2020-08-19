@@ -6,14 +6,13 @@ class BikesController < ApplicationController
   end
 
   def show
-   @bike = Bike.find(params[:id])
-   @bikes = Bike.all
+    @bike = Bike.find(params[:id])
+    @bikes = Bike.all
   end
 
   private
 
   def bike_params
-    # params.require(:bike).permit()
-    # in case we need to allow params.
+    params.require(:bike).permit(:photo)
   end
 end
