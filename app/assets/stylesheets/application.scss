@@ -11,3 +11,30 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  background-color: #FAF6F5;
+}
+
+$primary-color: #2ea0a7;
+$secondary-color: #c81705;
+
+.secondary {
+  color: $secondary-color;
+}
+.primary {
+  color: $primary-color;
+}
+
+h1 {
+  font-size: 28px;
+}
+h2 {
+  font-size: 22px;
+}
+h3 {
+  font-size: 16px;
+}
+h4 {
+  font-size: 16px
+}

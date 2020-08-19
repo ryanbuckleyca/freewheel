@@ -1,6 +1,21 @@
+.card-group a {
+  text-decoration: none;
+  color: black;
+}
 .card {
-  border: 1px solid rgba(1, 1, 1, 0.2);
-  box-shadow: 1px 1px 1px rgba(1, 1, 1, 0.2);
-  padding: 10px;
-  margin: 5px;
+  border: 1px solid rgba(1, 1, 1, 0.17);
+  box-shadow: 1px 1px 4px rgba(150, 150, 150, 0.17);
+  border-radius: 3px;
+  &:hover {
+    transition: 0.2s;
+    transform: scale(1.005);
+    box-shadow: 1px 1px 10px rgba(150, 150, 150, 0.17);
+  }
+}
+.card-img-top {
+  max-height: 300px;
+}
+.card-title {
+  font-size: 18px;
+  font-weight: 500;
 }
