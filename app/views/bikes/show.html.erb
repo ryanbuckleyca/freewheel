@@ -1,23 +1,22 @@
 
    <!-- search bar    -->
-      <form action="#" method="#" class="form-inline mb-4">
+      <!-- <form action="#" method="#" class="form-inline mb-4">
         <input type="text" name="search" class="form-control flex-grow-1">
         <input type="submit" class="btn btn-primary ml-2">
-      </form>
+      </form> -->
 
   <!-- bike details   -->
 
     <div class="bike-info-container" style="height: 200px">
-       <div class="float-let" style="width: 300px; height: 200px" >
-        <!-- <img src="https://source.unsplash.com/random/300x200" alt="bike"
+       <!-- placeholder image - waiting for @bike.photo.key -->
+       <div class="float-let">
+        <img src="https://source.unsplash.com/random/300x200" alt="bike"
            style="width: 300px; height: 200px; vertical-align: top"
-           class="rounded float-left"> -->
-          <%= cl_image_tag(@bike.photo.key, width: 300, height: 200, crop: :fill) %>
-
+           class="rounded float-left">
        </div>
         <div class="bike-info float-left">
           <ul>
-            <li>type: <%= @bike.bike_type %></li>
+            <li><%= @bike.bike_type %></li>
             <li><%= @bike.brand %></li>
             <li><%= @bike.year %></li>
             <li><%= @bike.frame_size %></li>
@@ -28,28 +27,29 @@
     </div>
     <div class="d-flex justify-content-center mt-4 mb-4">
       <button id="message" class="btn btn-primary">message user</button>
-      <button id="checkout" class="btn btn-success ml-2" data-toggle="modal" data-target="#exampleModal">checkout</button>
+      <button id="checkout" class="btn btn-success ml-2" data-toggle="modal" data-target="#confirmationModal">checkout</button>
     </div>
 
 
 <!-- confirmation page (modal) -->
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Request sent</h5>
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <h2>Confirmation</h2>
-        <p>your rental request has been submited to bike's owner</p>
+        <p>Your rental request has been submitted. To check the
+          status of your request, please visit your <a href="#">dashboard</a>
+        </p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">close</button>
       </div>
     </div>
   </div>
