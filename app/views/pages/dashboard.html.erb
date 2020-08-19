@@ -1,52 +1,90 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-8">
 
-      <!-- user info card -->
+    <!-- user info card -->
 
-      <div class="row justify-content-center">
-        <div class="card-product mt-4 mb-4">
-          <img class="col-12 col-md-6" src="https://avatars2.githubusercontent.com/u/48371025?s=460&u=02dd54122579ec71d1ad246da2bffef2b9467945&v=4"/>
-
-          <div class="col-12 card-product-infos">
-            <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-            <p><%= @user.email %></p>
-            <p><%= @user.phone_number %></p>
-          </div>
+    <div class="col-12 col-md-4 mt-4 mb-4">
+      <div class="card-product">
+      <img src="https://avatars2.githubusercontent.com/u/48371025?s=460&u=02dd54122579ec71d1ad246da2bffef2b9467945&v=4"/>
+        <div class="card-product-infos">
+          <h2><%= @user.first_name + @user.last_name %></h2>
+          <p><%= @user.email %></p>
+          <p><%= @user.phone_number %></p>
+          <a href="#">Edit my profile</a><br>
+          <a href="#">Delete my account</a><br>
         </div>
       </div>
+    </div>
 
-    <!-- rental details -->
+    <!-- BOOKINGS ----------------->
+    <div class="col-12 col-md-8 mt-4 mb-4">
 
-      <div class="rentals row shadow-sm p-3 mb-5 bg-white rounded">
-         <div class="bikes-rented-by-me float-left">
-            <h3> My rentals </h3>
+    <h3> Bikes I rented </h3>
+    <span>
+      <% @my_bikes.each do |bike| %>
+      <div class="card mb-2 p-2">
+        <%= bike.year %> <%= bike.brand %> <%= bike.bike_type %><br/>
+        DATE-BEGIN to DATE-END ($<%= bike.price %> * TOTAL)<br />
+        USER_RENTED   *** StarRating
+      </div>
+      <% end %>
+    </span>
 
-            <table class="table table-borderless">
-              <thead>
-                <tr>
-                  <th scope="col">brand</th>
-                  <th scope="col">type</th>
-                  <th scope="col">year</th>
-                  <th scope="col">frame</th>
-                  <th scope="col">price/h</th>
-                  <th scope="col">location</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @my_bikes.each do |bike| %>
-                <tr>
-                    <th scope="row"> <%= bike.brand %></th>
-                    <td><%= bike.bike_type %></td>
-                    <td><%= bike.year %></td>
-                    <td><%= bike.frame_size %></td>
-                    <td><%= bike.price %></td>
-                    <td><%= bike.location %></td>
-                  <% end %>
-                </tr>
-              </tbody>
-            </table>
-         </div>
-       </div>
+    <hr>
+
+    <h3> My bikes rented </h3>
+    <span>
+      <div class="card mb-2 p-2">
+        YEAR BRAND TYPE<br/>
+        DATE-BEGIN to DATE-END ($PRICE * TOTAL)<br />
+        USER_RENTED   *** StarRating
+      </div>
+      <div class="card mb-2 p-2">
+        YEAR BRAND TYPE<br/>
+        DATE-BEGIN to DATE-END ($PRICE * TOTAL)<br />
+        USER_RENTED   *** StarRating
+      </div>
+      <div class="card mb-2 p-2">
+        YEAR BRAND TYPE<br/>
+        DATE-BEGIN to DATE-END ($PRICE * TOTAL)<br />
+        USER_RENTED   *** StarRating
+      </div>
+      <div class="card mb-2 p-2">
+        YEAR BRAND TYPE<br/>
+        DATE-BEGIN to DATE-END ($PRICE * TOTAL)<br />
+        USER_RENTED   *** StarRating
+      </div>
+      <div class="card mb-2 p-2">
+        YEAR BRAND TYPE<br/>
+        DATE-BEGIN to DATE-END ($PRICE * TOTAL)<br />
+        USER_RENTED   *** StarRating
+      </div>
+      <div class="card mb-2 p-2">
+        YEAR BRAND TYPE<br/>
+        DATE-BEGIN to DATE-END ($PRICE * TOTAL)<br />
+        USER_RENTED   *** StarRating
+      </div>
+      <div class="card mb-2 p-2">
+        YEAR BRAND TYPE<br/>
+        DATE-BEGIN to DATE-END ($PRICE * TOTAL)<br />
+        USER_RENTED   *** StarRating
+      </div>
+      <div class="card mb-2 p-2">
+        YEAR BRAND TYPE<br/>
+        DATE-BEGIN to DATE-END ($PRICE * TOTAL)<br />
+        USER_RENTED   *** StarRating
+      </div>
+      <div class="card mb-2 p-2">
+        YEAR BRAND TYPE<br/>
+        DATE-BEGIN to DATE-END ($PRICE * TOTAL)<br />
+        USER_RENTED   *** StarRating
+      </div>
+      <div class="card mb-2 p-2">
+        YEAR BRAND TYPE<br/>
+        DATE-BEGIN to DATE-END ($PRICE * TOTAL)<br />
+        USER_RENTED   *** StarRating
+      </div>
+    </div>
+
     </div>
   </div>
