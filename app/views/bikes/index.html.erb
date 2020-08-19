@@ -2,7 +2,7 @@
 
 <h1><%= @query.nil? ? "All bikes:" : "Bikes matching '#{@query}'" %></h1>
 
-<%= render 'shared/searchbar' %>
+<%= render 'shared/searchbar' unless request.env['PATH_INFO'] == "/" %>
 
   <div class="row">
     <% @bikes.each do |bike| %>
