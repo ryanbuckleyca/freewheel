@@ -1,3 +1,55 @@
+<div class="container">
+  <div class="row justify-content-center mb-4">
+    <div class="col-sm-12 col-md-8">
+      <!-- bio card -->
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+              <h2><%= @user.first_name + @user.last_name %></h2>
+              <p><%= @user.email %></p>
+              <p><%= @user.phone_number %></p>
+            </div>
+        </div>
+    </div>
+  </div>
+
+      <!-- rental details -->
+     <div class="rentals" style="border: 1px solid red">
+       <div class="bikes-rented-by-me float-left">
+        <h3> My bike </h3>
+
+        <ul>
+          <% @my_bikes.each do |bike|%>
+          <li>
+            <%= bike.brand %>
+            <%= bike.bike_type %>
+            <a href="#">approved</a>
+          </li>
+          <% end %>
+        </ul>
+
+
+
+
+       </div>
+
+       <div class="bikes-rented-by-others float-left">
+
+       </div>
+
+
+     </div>
+
+
+</div>
+
+
+
+
+
+
+
+
 <h1>this is the dashboard page</h1>
 
 <h2> My profile</h2>
