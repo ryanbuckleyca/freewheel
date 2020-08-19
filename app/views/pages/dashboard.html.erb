@@ -1,106 +1,52 @@
 <div class="container">
-  <div class="row justify-content-center mb-4">
+  <div class="row justify-content-center">
     <div class="col-sm-12 col-md-8">
-      <!-- bio card -->
-        <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+
+      <!-- user info card -->
+
+      <div class="row justify-content-center">
+        <div class="card-product mt-4 mb-4">
+          <img src="https://unsplash.com/photos/eSjmZW97cH8"/>
+
             <div class="card-product-infos">
               <h2><%= @user.first_name + @user.last_name %></h2>
               <p><%= @user.email %></p>
               <p><%= @user.phone_number %></p>
             </div>
         </div>
+      </div>
+
+    <!-- rental details -->
+
+      <div class="rentals row shadow-sm p-3 mb-5 bg-white rounded">
+         <div class="bikes-rented-by-me float-left">
+            <h3> My rentals </h3>
+
+            <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">brand</th>
+                  <th scope="col">type</th>
+                  <th scope="col">year</th>
+                  <th scope="col">frame</th>
+                  <th scope="col">price/h</th>
+                  <th scope="col">location</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @my_bikes.each do |bike| %>
+                <tr>
+                    <th scope="row"> <%= bike.brand %></th>
+                    <td><%= bike.bike_type %></td>
+                    <td><%= bike.year %></td>
+                    <td><%= bike.frame_size %></td>
+                    <td><%= bike.price %></td>
+                    <td><%= bike.location %></td>
+                  <% end %>
+                </tr>
+              </tbody>
+            </table>
+         </div>
+       </div>
     </div>
   </div>
-
-      <!-- rental details -->
-     <div class="rentals" style="border: 1px solid red">
-       <div class="bikes-rented-by-me float-left">
-        <h3> My bike </h3>
-
-        <ul>
-          <% @my_bikes.each do |bike|%>
-          <li>
-            <%= bike.brand %>
-            <%= bike.bike_type %>
-            <a href="#">approved</a>
-          </li>
-          <% end %>
-        </ul>
-
-
-
-
-       </div>
-
-       <div class="bikes-rented-by-others float-left">
-
-       </div>
-
-
-     </div>
-
-
-</div>
-
-
-
-
-
-
-
-
-<h1>this is the dashboard page</h1>
-
-<h2> My profile</h2>
-   <%= @user.first_name + @user.last_name + @user.email + @user.phone_number%>
-
-<h2> My bike </h2>
-<div>
-  <% @my_bikes.each do |bike|%>
-   <%= bike.brand%>
-  <% end %>
-</div>
-
-<h2> Bike I Rent</h2>
-<div>
-  <% @bikes_i_rent.each do |bike|%>
-   <%= bike.brand%>
-  <% end %>
-</div>
-
-<h2> My rentals</h2>
-<div>
-  <% @my_rentals.each do |rental|%>
-   <%= "time: #{rental.rental_start}, time #{rental.rental_end}" %>
-    <%= rental.bike.brand%>
-  <% end %>
-</div>
-
-<h2> My Rental request received</h2>
-<div>
-  <% @rental_request_received.each do |rental|%>
-   <%= "time: #{rental.rental_start}, time #{rental.rental_end}" %>
-  <% end %>
-</div>
-
-<!--
-user information:
-user Details information:
-first & last name //
- email address //
-phone number
-
-rental information: (user who wants to rent the )
-user Details information:
-first & last name //
- email address //
-phone number
-
-my bike information:
-Details information:
-price // type // Fram Size //
-Year // Brand // Location
-Availble for rent
-
-rental history -->
