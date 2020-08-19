@@ -1,8 +1,15 @@
 <div class="input-group md-form form-sm form-2 pl-0">
-  <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
+<%= form_tag bikes_path, method: :get, class: 'form-inline w-100' do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control my-0 py-1 flex-grow-1",
+    placeholder: 'Search bikes'
+  %>
   <div class="input-group-append">
-    <span class="input-group-text lighten-3" id="main-search">
-      <i class="fas fa-search text-white" aria-hidden="true"></i>
+    <%= button_tag(type: "submit", class: "input-group-text lighten-3 h-auto") do %>
+    <i class="fas fa-search text-white" aria-hidden="true"></i>
+    <% end %>
     </span>
   </div>
+<% end %>
 </div>

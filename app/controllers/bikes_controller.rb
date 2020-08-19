@@ -3,7 +3,9 @@ class BikesController < ApplicationController
 
   def index
     if params[:query].present?
-      @bikes = Bike.where(bike_type: params[:query])
+      @bikes = Bike.where("(lower(bike_type) LIKE '%#{params[:query].downcase}%')
+                        OR (lower(brand) LIKE '%#{params[:query].downcase}%')
+                        OR (year = #{params[:query].to_i})")
       @query = params[:query]
     else
       @bikes = Bike.all
