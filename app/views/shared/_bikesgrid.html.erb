@@ -1,0 +1,23 @@
+<div class="row">
+  <% @bikes.each do |bike| %>
+    <div class="card-group col-lg-3 col-md-4 col-sm-6 offset-sm-0 col-10 offset-1">
+      <%= link_to bike_path(bike), class: "card my-3" do %>
+        <img class="card-img-top" src="https://source.unsplash.com/300x300/?<%= bike.bike_type.gsub(/\s/, ',').to_s + ",bicycle" %>">
+        <div class="card-body">
+          <h2 class="card-title">
+          <%= bike.brand %>
+          <%= bike.bike_type  %>
+          <small>(<%= bike.year %>)</small>
+          </h2>
+          <p class="card-text">
+           <i class="fas fa-map-marker-alt red"></i> <%= bike.location %>
+          </p>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <%= bike.available_for_rent ? "Available" : "Unavailable" %>
+          <strong class="blue">$<%= bike.price %>/hr</strong>
+        </div>
+      <% end %>
+    </div>
+  <% end  %>
+</div>
