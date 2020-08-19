@@ -18,20 +18,19 @@
     </header>
 
     <% if request.env['PATH_INFO'] == "/" %>
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/nPOtzvGLYW0/1600x900);">
-        <div class="container">
-          <h1>Bixi is <strong>boring</strong>! Rent with style by the hour or day!</h1>
-          <p>Search for cool bikes near you</p>
-          <%= render 'shared/searchbar' %>
-        </div>
+    <div class="banner" style="padding: 125px 0; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/nPOtzvGLYW0/1600x900);">
+      <div class="container">
+        <h1>Bixi is <strong>boring</strong>! Rent with style by the hour or day!</h1>
+        <p>Search for cool bikes near you</p>
+        <%= render 'shared/searchbar' %>
       </div>
+    </div>
     <% end %>
 
-    <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
-    </div>
+    <%= yield %>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
