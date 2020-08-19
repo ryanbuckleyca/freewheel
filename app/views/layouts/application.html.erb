@@ -17,13 +17,9 @@
       <%= render 'shared/navbar' %>
     </header>
     <div class="container">
-      <div class="row m-5 justify-content-center">
-        <div class="col-lg-8 col-md-10 col-sm-12"
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-          <%= yield %>
-        </div>
-      </div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
     </div>
 
     <!-- Bootstrap JS -->
