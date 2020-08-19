@@ -1,0 +1,14 @@
+.input-group.md-form.form-sm.form-2 input {
+  border: 1px solid $red;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  border-radius: 50px 0 0 50px;
+  padding: 15px;
+  height: auto;
+}
+.input-group-text {
+  background-color: $red;
+  border: 1px solid $red;
+  padding: 15px;
+  border-radius: 0 50px 50px 0;
+}

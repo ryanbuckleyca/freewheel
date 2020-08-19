@@ -10,20 +10,18 @@
 
 // Your CSS partials
 @import "components/index";
+@import "components/banner";
+@import "components/searchbar";
 @import "pages/index";
 
 body {
   background-color: #FAF6F5;
 }
-
-$primary-color: #2ea0a7;
-$secondary-color: #c81705;
-
-.secondary {
-  color: $secondary-color;
+.red {
+  color: $red;
 }
-.primary {
-  color: $primary-color;
+.blue {
+  color: $blue;
 }
 
 h1 {

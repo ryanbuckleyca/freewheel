@@ -12,12 +12,12 @@
           <small>(<%= bike.year %>)</small>
           </h2>
           <p class="card-text">
-           <i class="fas fa-map-marker-alt secondary"></i> <%= bike.location %>
+           <i class="fas fa-map-marker-alt red"></i> <%= bike.location %>
           </p>
         </div>
         <div class="card-footer d-flex justify-content-between">
           <%= bike.available_for_rent ? "Available" : "Unavailable" %>
-          <strong class="primary">$<%= bike.price %>/hr</strong>
+          <strong class="blue">$<%= bike.price %>/hr</strong>
         </div>
       <% end %>
     </div>
