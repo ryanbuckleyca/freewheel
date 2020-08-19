@@ -1,12 +1,21 @@
 <h1>All Bikes</h1>
 
-<form>
+<%# <form>
   <div class="form-group">
     <label>Search bikes...</label>
     <input type="text" class="form-control" name="query" placeholder='2 seats... in Montreal... 24" frame...'>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</form> %>
+
+<%= form_tag bikes_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: 'Search bikes'
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
 
 <div class="row">
   <% @bikes.each do |bike| %>

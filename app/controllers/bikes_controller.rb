@@ -2,7 +2,11 @@ class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home, :bikes ]
 
   def index
-    @bikes = Bike.all
+    if params[:query].present?
+      @bikes = Bike.where(bike_type: params[:query])
+    else
+      @bikes = Bike.all
+    end
   end
 
   def show
