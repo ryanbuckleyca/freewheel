@@ -1,19 +1,15 @@
   <!-- bike details   -->
+<div class="banner" style="padding: 5vh 0 15vh; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0)), url(https://res.cloudinary.com/ryanbuckleyca/image/upload/v1597859027/Screen_Shot_2020-08-19_at_1.42.12_PM_lcvndv.png);">
 
-  <div class="container" style="height: 60vh">
-    <div class="row justify-content-center">
-      <div class="col-6">
-        <div class="bike-info-container mt-4 shadow-sm p-3 mb-5 bg-white rounded"
-            style="height: 230px">
-
-       <!-- placeholder image - waiting for @bike.photo.key -->
-          <div class="float-let align-middle">
-            <img src="https://source.unsplash.com/random/300x200" alt="bike"
-           style="width: 300px; height: 200px; vertical-align: top"
-           class="rounded float-left align-middle">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="card row mb-4 shadow-sm bg-white rounded">
+        <div class="card-body d-flex m-3">
+          <div class="float-left align-center">
+            <img src="https://source.unsplash.com/random/200x200" alt="bike" width="200" height="200" class="rounded float-left align-middle">
           </div>
 
-          <div class="bike-info float-left">
+          <div class="card-info float-right">
             <ul class="p-3">
               <li class="list-unstyled"><strong>type:</strong> <%= @bike.bike_type %></li>
               <li class="list-unstyled"><strong>brand:</strong> <%= @bike.brand %></li>
@@ -24,52 +20,71 @@
             </ul>
           </div>
         </div>
-
-        <!-- buttons -->
-        <div class="d-flex justify-content-center mt-4 mb-4">
+        <div class="card-footer d-flex justify-content-center p-4">
           <%= link_to "message owner", dashboard_path, class: "btn btn-primary" %>
           <button id="checkout" class="btn btn-success ml-2" data-toggle="modal" data-target="#confirmationModal">checkout</button>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 <!-- confirmation page (modal) -->
+<div class="container">
+  <div class="col-12">
 
-  <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"></h5>
-        <button action="" type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h2>Confirmation</h2>
-        <p>Your rental request has been submitted. To check the
-          status of your request, please visit your
-          <%= link_to "dashboard", dashboard_path  %>
-        </p>
-      </div>
-      <div class="modal-footer">
-        <%= link_to "see more bikes", bikes_path, class: "btn btn-primary" %>
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"></h5>
+            <button action="" type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h2>Confirmation</h2>
+            <p>Your rental request has been submitted. To check the
+              status of your request, please visit your
+              <%= link_to "dashboard", dashboard_path  %>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <%= link_to "see more bikes", bikes_path, class: "btn btn-primary" %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
     <!-- see more bikes -->
 
-  <h2 class="mb-4 mt-4">Other bikes near you</h2>
-    <ul>
-      <% @bikes.each do |bike| %>
-      <li>Type: <%= bike.bike_type %>
-        Brand: <%= bike.brand %>
-        Price: $<%= bike.price %>
-      </li>
-      <% end %>
-    </ul>
+    <h2 class="mb-4 mt-4">Other bikes near you</h2>
 
+    <div class="row">
+      <% @bikes.each do |bike| %>
+        <div class="card-group col-xl-2 col-lg-3 col-md-4 col-sm-6 offset-sm-0 col-10 offset-1">
+          <%= link_to bike_path(bike), class: "card my-3" do %>
+            <img class="card-img-top" src="https://source.unsplash.com/300x300/?<%= bike.bike_type.gsub(/\s/, ',').to_s + ",bicycle" %>">
+            <div class="card-body">
+              <h2 class="card-title">
+              <%= bike.brand %>
+              <%= bike.bike_type  %>
+              <small>(<%= bike.year %>)</small>
+              </h2>
+              <p class="card-text">
+               <i class="fas fa-map-marker-alt red"></i> <%= bike.location %>
+              </p>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              <%= bike.available_for_rent ? "Available" : "Unavailable" %>
+              <strong class="blue">$<%= bike.price %>/hr</strong>
+            </div>
+          <% end %>
+        </div>
+      <% end  %>
+    </div>
+
+  </div>
+</div>
 
 
