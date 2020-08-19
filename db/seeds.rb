@@ -1,5 +1,10 @@
 require 'faker'
 
+# DROP EVERYTHING FIRST
+Rental.destroy_all
+User.destroy_all
+Bike.destroy_all
+
 Faker::Config.locale = 'en-CA'
 
 BIKE_TYPES = ['Mountain Bike', 'Hybrid/Comfort Bike', 'Road Bike',
@@ -29,16 +34,15 @@ MTL_PHONES = ['(514) 376-8344', '(514) 279-7016', '(514) 482-1925', '(514) 366-7
               '(514) 729-1844', '(514) 761-3242', '(514) 485-2431', '(514) 507-2550',
               '(514) 342-8215', '(514) 257-9112', '(438) 380-3437', '(514) 935-1002']
 
-def generate_base_user_bike
-  USER_RYAN = User.create(email: 'ryanbuckley@gmail.com',
+USER_RYAN = User.create!(email: 'ryanbuckley@gmail.com',
                           first_name: 'Ryan', last_name: 'Buckley',
                           phone_number: '(347) 272-0159', password: '123456')
-  ryan_bike = Bike.new(frame_size: 72, seat_count: 1, bike_type: 'Fixed Gear',
+ryan_bike = Bike.new(frame_size: 72, seat_count: 1, bike_type: 'Fixed Gear',
                        year: 2005, brand: 'Peugeot', price: 4,
                        location: '1200 Rue Atatken, Montreal QC', available_for_rent: true)
-  ryan_bike.user = USER_RYAN
-  ryan_bike.save!
-end
+ryan_bike.user = USER_RYAN
+ryan_bike.save!
+
 
 def generate_users(times)
   puts "generating #{times} users..."
@@ -47,7 +51,7 @@ def generate_users(times)
                         first_name: Faker::Name.first_name,
                         last_name: Faker::Name.last_name,
                         phone_number: MTL_PHONES[i],
-                        password: [*('A'..'Z')].sample(8).join)
+                        password: '123456')
     new_user.save!
   end
   puts "#{times} users generated"
@@ -94,13 +98,9 @@ def generate_rentals(times)
   puts "#{times} rentals generated..."
 end
 
-# DROP EVERYTHING FIRST
-Rental.destroy_all
-User.destroy_all
-Bike.destroy_all
 
 # RUN SEEDS
-generate_base_user_bike
+
 generate_users(20)
 generate_bikes(20)
 generate_rentals(15)
