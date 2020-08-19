@@ -1,30 +1,25 @@
 <h1>All Bikes</h1>
 
-<div class="container">
-  <div class="row">
-    <% @bikes.each do |bike| %>
-    <div class="col-sm-12 col-md-6 d-flex align-content-stretch">
-      <div class="card p-0 flex-grow-1">
-
-        <div class="d-flex p-0">
-          <img src="https://source.unsplash.com/100x100/?bike,<%= bike.brand %>">
-          <div class="card-info d-flex flex-column flex-grow-1 p-3">
-            <div class="flex-grow-1">
-              <%= bike.year %>
-              <%= bike.brand %>
-              <%= bike.bike_type  %><br>
-              <%= bike.seat_count %> seater
-              <%= bike.location %>
-            </div>
-            <div class="d-flex justify-content-between">
-              <%= bike.available_for_rent ? "Available" : "Unavailable" %>
-              <strong>$<%= bike.price %></strong>
-            </div>
-          </div>
+<div class="row">
+  <% @bikes.each do |bike| %>
+    <div class="card-group col-xl-2 col-lg-3 col-md-4 col-sm-6 offset-sm-0 col-10 offset-1">
+      <%= link_to bike_path(bike), class: "card my-3" do %>
+        <img class="card-img-top" src="https://source.unsplash.com/300x300/?<%= bike.bike_type.gsub(/\s/, ',').to_s + ",bicycle" %>">
+        <div class="card-body">
+          <h2 class="card-title">
+          <%= bike.brand %>
+          <%= bike.bike_type  %>
+          <small>(<%= bike.year %>)</small>
+          </h2>
+          <p class="card-text">
+           <i class="fas fa-map-marker-alt secondary"></i> <%= bike.location %>
+          </p>
         </div>
-
-      </div>
+        <div class="card-footer d-flex justify-content-between">
+          <%= bike.available_for_rent ? "Available" : "Unavailable" %>
+          <strong class="primary">$<%= bike.price %>/hr</strong>
+        </div>
+      <% end %>
     </div>
-    <% end  %>
-  </div>
+  <% end  %>
 </div>
