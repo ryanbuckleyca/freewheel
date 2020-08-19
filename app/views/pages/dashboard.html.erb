@@ -6,13 +6,13 @@
 
       <div class="row justify-content-center">
         <div class="card-product mt-4 mb-4">
-          <img src="https://unsplash.com/photos/eSjmZW97cH8"/>
+          <img class="col-12 col-md-6" src="https://avatars2.githubusercontent.com/u/48371025?s=460&u=02dd54122579ec71d1ad246da2bffef2b9467945&v=4"/>
 
-            <div class="card-product-infos">
-              <h2><%= @user.first_name + @user.last_name %></h2>
-              <p><%= @user.email %></p>
-              <p><%= @user.phone_number %></p>
-            </div>
+          <div class="col-12 card-product-infos">
+            <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+            <p><%= @user.email %></p>
+            <p><%= @user.phone_number %></p>
+          </div>
         </div>
       </div>
 
