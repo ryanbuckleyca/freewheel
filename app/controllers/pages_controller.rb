@@ -7,11 +7,8 @@ class PagesController < ApplicationController
     @user = current_user
     @my_bikes = Bike.where(user: current_user)
     @bikes_i_rent = Bike.joins(:rentals).where(rentals: { user_id: current_user.id })
-    #@m = Rental.where(user: current_user)
-    #raise
-    # @my_bikes_rented =
-    # @renting_history =
-    # link to pages: message, usy_rentalser profile, pages link
+    @my_rentals = Rental.where(user: current_user)
+    @rental_request_received = Rental.joins(:bike).where(bikes: { user_id: current_user.id })
   end
 
 end
