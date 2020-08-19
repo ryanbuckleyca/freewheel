@@ -1,6 +1,9 @@
 <div class="container mt-3">
 
-  <h1>All Bikes</h1>
+<h1><%= @query.nil? ? "All bikes:" : "Bikes matching '#{@query}'" %></h1>
+
+<%= render 'shared/searchbar' unless request.env['PATH_INFO'] == "/" %>
+
   <div class="row">
     <% @bikes.each do |bike| %>
       <div class="card-group col-xl-2 col-lg-3 col-md-4 col-sm-6 offset-sm-0 col-10 offset-1">

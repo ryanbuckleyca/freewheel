@@ -2,7 +2,14 @@ class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home, :bikes ]
 
   def index
-    @bikes = Bike.all
+    if params[:query].present?
+      @bikes = Bike.where("(lower(bike_type) LIKE '%#{params[:query].downcase}%')
+                        OR (lower(brand) LIKE '%#{params[:query].downcase}%')
+                        OR (year = #{params[:query].to_i})")
+      @query = params[:query]
+    else
+      @bikes = Bike.all
+    end
   end
 
   def show
