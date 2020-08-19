@@ -5,12 +5,14 @@
       <div class="col-6">
         <div class="bike-info-container mt-4 shadow-sm p-3 mb-5 bg-white rounded"
             style="height: 230px">
+
        <!-- placeholder image - waiting for @bike.photo.key -->
           <div class="float-let align-middle">
             <img src="https://source.unsplash.com/random/300x200" alt="bike"
            style="width: 300px; height: 200px; vertical-align: top"
            class="rounded float-left align-middle">
           </div>
+
           <div class="bike-info float-left">
             <ul class="p-3">
               <li class="list-unstyled"><strong>type:</strong> <%= @bike.bike_type %></li>
@@ -25,15 +27,12 @@
 
         <!-- buttons -->
         <div class="d-flex justify-content-center mt-4 mb-4">
-          <button id="message" class="btn btn-primary">message user</button>
+          <%= link_to "message owner", dashboard_path, class: "btn btn-primary" %>
           <button id="checkout" class="btn btn-success ml-2" data-toggle="modal" data-target="#confirmationModal">checkout</button>
         </div>
-
       </div>
     </div>
   </div>
-
-
 
 <!-- confirmation page (modal) -->
 
@@ -49,7 +48,8 @@
       <div class="modal-body">
         <h2>Confirmation</h2>
         <p>Your rental request has been submitted. To check the
-          status of your request, please visit your <a href="#">dashboard</a>
+          status of your request, please visit your
+          <%= link_to "dashboard", dashboard_path  %>
         </p>
       </div>
       <div class="modal-footer">
