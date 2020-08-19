@@ -1,6 +1,14 @@
 <h1>this is the dashboard page</h1>
+
 <div>
   <% @my_bikes.each do |bike|%>
+   <%= bike.brand%>
+  <% end %>
+</div>
+
+<h2> bike i rent</h2>
+<div>
+  <% @bikes_i_rent.each do |bike|%>
    <%= bike.brand%>
   <% end %>
 </div>
