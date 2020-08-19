@@ -13,7 +13,6 @@ class BikesController < ApplicationController
   private
 
   def bike_params
-    # params.require(:bike).permit()
-    # in case we need to allow params.
+    params.require(:bike).permit(:photo)
   end
 end

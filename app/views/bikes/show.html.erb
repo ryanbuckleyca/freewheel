@@ -8,9 +8,13 @@
   <!-- bike details   -->
 
     <div class="bike-info-container" style="height: 200px">
-      <img src="https://source.unsplash.com/random/300x200" alt="bike"
+       <div class="float-let" style="width: 300px; height: 200px" >
+        <!-- <img src="https://source.unsplash.com/random/300x200" alt="bike"
            style="width: 300px; height: 200px; vertical-align: top"
-           class="rounded float-left">
+           class="rounded float-left"> -->
+          <%= cl_image_tag(@bike.photo.key, width: 300, height: 200, crop: :fill) %>
+
+       </div>
         <div class="bike-info float-left">
           <ul>
             <li>type: <%= @bike.bike_type %></li>
@@ -24,10 +28,35 @@
     </div>
     <div class="d-flex justify-content-center mt-4 mb-4">
       <button id="message" class="btn btn-primary">message user</button>
-      <button id="checkout" class="btn btn-success ml-2">checkout</button>
+      <button id="checkout" class="btn btn-success ml-2" data-toggle="modal" data-target="#exampleModal">checkout</button>
     </div>
 
+
+<!-- confirmation page (modal) -->
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Request sent</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h2>Confirmation</h2>
+        <p>your rental request has been submited to bike's owner</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <!-- see more bikes -->
+
   <h2 class="mb-4 mt-4">Other bikes near you</h2>
     <ul>
       <% @bikes.each do |bike| %>
@@ -37,5 +66,6 @@
       </li>
       <% end %>
     </ul>
+
 
 
