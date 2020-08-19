@@ -1,44 +1,48 @@
-
-   <!-- search bar    -->
-      <!-- <form action="#" method="#" class="form-inline mb-4">
-        <input type="text" name="search" class="form-control flex-grow-1">
-        <input type="submit" class="btn btn-primary ml-2">
-      </form> -->
-
   <!-- bike details   -->
 
-    <div class="bike-info-container" style="height: 200px">
+  <div class="container" style="height: 60vh">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="bike-info-container mt-4 shadow-sm p-3 mb-5 bg-white rounded"
+            style="height: 230px">
        <!-- placeholder image - waiting for @bike.photo.key -->
-       <div class="float-let">
-        <img src="https://source.unsplash.com/random/300x200" alt="bike"
+          <div class="float-let align-middle">
+            <img src="https://source.unsplash.com/random/300x200" alt="bike"
            style="width: 300px; height: 200px; vertical-align: top"
-           class="rounded float-left">
-       </div>
-        <div class="bike-info float-left">
-          <ul>
-            <li><%= @bike.bike_type %></li>
-            <li><%= @bike.brand %></li>
-            <li><%= @bike.year %></li>
-            <li><%= @bike.frame_size %></li>
-            <li><%= @bike.seat_count %></li>
-            <li><%= @bike.price %></li>
-          </ul>
+           class="rounded float-left align-middle">
+          </div>
+          <div class="bike-info float-left">
+            <ul class="p-3">
+              <li class="list-unstyled"><strong>type:</strong> <%= @bike.bike_type %></li>
+              <li class="list-unstyled"><strong>brand:</strong> <%= @bike.brand %></li>
+              <li class="list-unstyled"><strong>year:</strong> <%= @bike.year %></li>
+              <li class="list-unstyled"><strong>frame:</strong> <%= @bike.frame_size %></li>
+              <li class="list-unstyled"><strong>number of seats:</strong> <%= @bike.seat_count %></li>
+              <li class="list-unstyled"><strong>price:</strong> $<%= @bike.price %>/hour</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- buttons -->
+        <div class="d-flex justify-content-center mt-4 mb-4">
+          <button id="message" class="btn btn-primary">message user</button>
+          <button id="checkout" class="btn btn-success ml-2" data-toggle="modal" data-target="#confirmationModal">checkout</button>
+        </div>
+
       </div>
     </div>
-    <div class="d-flex justify-content-center mt-4 mb-4">
-      <button id="message" class="btn btn-primary">message user</button>
-      <button id="checkout" class="btn btn-success ml-2" data-toggle="modal" data-target="#confirmationModal">checkout</button>
-    </div>
+  </div>
+
 
 
 <!-- confirmation page (modal) -->
 
-  <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button action="" type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -49,7 +53,7 @@
         </p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">close</button>
+        <%= link_to "see more bikes", bikes_path, class: "btn btn-primary" %>
       </div>
     </div>
   </div>
