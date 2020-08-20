@@ -32,6 +32,17 @@
 
     <hr>
 
+    <h3> My rentals:</h3>
+      <div>
+        <% @my_rentals.each do |rental|%>
+        <p><%= rental.bike.brand %></p>
+        <p><%= rental.rental_start.strftime("%m/%d/%y at %I:%M%p")%></p>
+        <p><%= rental.rental_end.strftime("%m/%d/%y at %I:%M%p") %></p>
+        <p><%= rental.booking_confirmed %></p>
+        <p><%= rental.message %></p>
+        <% end %>
+      </div>
+
     <h3> My bikes rented </h3>
     <span>
       <div class="card mb-2 p-2">
