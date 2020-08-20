@@ -21,13 +21,15 @@
 }
 
 @media(min-width: 768px) {
-  // small mode
+  // desktop
   .card-profile {
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 50px;
-    display: block !important;
     height: auto !important;
+  }
+  .card-profile-details {
+    display: block !important;
   }
   .card-profile img {
     width: 100% !important;
@@ -41,20 +43,25 @@
   width: 100%;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+}
+.card-profile p {
+  margin: 0;
+}
+.card-profile-details {
   display: flex;
   align-items: center;
 }
-
-.card-profile img {
-  width: 50%
+.card-profile-infos {
+  padding-left: 15px;
 }
-
+.card-profile img {
+  width: 25%;
+  min-width: 110px;
+}
 .card-profile h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
-}
-.card-profile-infos {
-  padding: 20px;
 }
 
