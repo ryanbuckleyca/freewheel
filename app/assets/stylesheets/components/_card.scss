@@ -22,21 +22,21 @@
 
 @media(min-width: 768px) {
   // small mode
-  .card-product {
+  .card-profile {
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 50px;
     display: block !important;
     height: auto !important;
   }
-  .card-product img {
+  .card-profile img {
     width: 100% !important;
   }
-  .card-product-infos {
+  .card-profile-infos {
     padding: 20px 0 !important;
   }
 }
-.card-product {
+.card-profile {
   padding: 10px;
   width: 100%;
   background: white;
@@ -45,16 +45,16 @@
   align-items: center;
 }
 
-.card-product img {
+.card-profile img {
   width: 50%
 }
 
-.card-product h2 {
+.card-profile h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
-.card-product-infos {
+.card-profile-infos {
   padding: 20px;
 }
 
