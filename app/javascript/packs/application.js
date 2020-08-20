@@ -27,7 +27,7 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { algoliaSearch } from "../plugins/init_algolia_search.js";
+import { algoliaSearch } from "../plugins/places.js";
 
 
 
@@ -35,5 +35,5 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   console.log("javascript init");
-  algoliaSearch();
+  placesAutocomplete();
 });
