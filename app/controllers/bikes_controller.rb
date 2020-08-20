@@ -40,7 +40,13 @@ class BikesController < ApplicationController
   private
 
   def user_location
-    @user_location = [ request.location.latitude, request.location.longitude ]
+    if request.key?('HTTP_HOST')
+      if request['HTTP_HOST'].nil? || request['HTTP_HOST'].include?("localhost")
+        @user_location = [45.525990, -73.595410]
+      end
+    else
+      @user_location = [request.location.longitude, request.location.latitude]
+    end
   end
 
   def bike_params
