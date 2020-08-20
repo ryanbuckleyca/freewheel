@@ -1,4 +1,5 @@
 require 'faker'
+require 'Geocoder'
 
 # DROP EVERYTHING FIRST
 Rental.destroy_all
