@@ -4,4 +4,9 @@ class Bike < ApplicationRecord
 
   has_many :rentals, dependent: :destroy
 
+  include AlgoliaSerach
+
+  algoliaserach do 
+    attributes :location
+  end
 end
