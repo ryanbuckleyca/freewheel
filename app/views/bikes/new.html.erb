@@ -1,0 +1,21 @@
+<%= simple_form_for(@bike) do |f|  %>
+  <%= f.input :frame_size %>
+  
+  <%= f.input :seat_count %>
+
+  <%= f.input :bike_type %>
+
+  <%= f.input :year %>
+
+  <%= f.input :brand %>
+
+  <%= f.input :price %>
+
+
+  <%= f.input :location %>
+
+
+  <%= f.input :available_for_rent, as: :boolean, checked_value: true, unchecked_value: false %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit "Post Bike" %>
+<% end  %>
