@@ -12,6 +12,15 @@
     box-shadow: 1px 1px 10px rgba(150, 150, 150, 0.17);
   }
 }
+.card-details {
+  display: flex;
+}
+@media(max-width: 650px) {
+  .card-details {
+    flex-direction: column !important;
+    align-items: center;
+  }
+}
 .card-img-top {
   max-height: 300px;
 }

@@ -2,14 +2,14 @@
 <div class="banner" style="padding: 5vh 0 15vh; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0)), url(https://res.cloudinary.com/ryanbuckleyca/image/upload/v1597859027/Screen_Shot_2020-08-19_at_1.42.12_PM_lcvndv.png);">
 
   <div class="row justify-content-center">
-    <div class="col-6">
-      <div class="card row mb-4 shadow-sm bg-white rounded">
-        <div class="card-body d-flex m-3">
-          <div class="float-left align-center">
-            <img src="https://source.unsplash.com/random/200x200" alt="bike" width="200" height="200" class="rounded float-left align-middle">
+    <div class="col-8 col-6-md text-align-center">
+      <div class="card row mb-4 mx-auto shadow-sm bg-white rounded" style="max-width: 550px">
+        <div class="card-details m-3">
+          <div class="align-center">
+            <img src="https://source.unsplash.com/300x300/?<%= @bike.bike_type.gsub(/\s/, ',').to_s + ",bicycle" %>" alt="bike" width="200" height="200" class="rounded float-left align-middle">
           </div>
 
-          <div class="card-info float-right">
+          <div class="card-info">
             <ul class="p-3">
               <li class="list-unstyled"><strong>type:</strong> <%= @bike.bike_type %></li>
               <li class="list-unstyled"><strong>brand:</strong> <%= @bike.brand %></li>

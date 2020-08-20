@@ -2,7 +2,7 @@
   justify-content: space-between;
   background: $blue;
   color: white !important;
-  padding: 15px 10px;
+  padding: 10px 20px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,8 +10,9 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 50px;
-  margin-bottom: 8px;
+  position: relative;
+  width: 35px;
+  bottom: 2px;
   filter: brightness(100);
 }
 .navbar-brand {
