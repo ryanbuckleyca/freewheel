@@ -3,35 +3,45 @@
 
   <div class="row justify-content-center">
     <div class="col-8 col-6-md text-align-center">
-      <div class="card row mb-4 mx-auto shadow-sm bg-white rounded" style="max-width: 550px">
+      <div class="card row mb-4 px-3 mx-auto shadow-sm bg-white rounded" style="max-width: 550px">
         <div class="card-details m-3">
-          <div class="align-center">
-            <img src="https://source.unsplash.com/300x300/?<%= @bike.bike_type.gsub(/\s/, ',').to_s + ",bicycle" %>" alt="bike" width="200" height="200" class="rounded float-left align-middle">
+          <div class="align-center mt-3">
+            <%= raw "<img src=\"https://source.unsplash.com/300x300/?" +
+              @bike.bike_type.gsub(/\s/, ',').to_s +
+              ",bicycle\" alt=\"bike\" width=\"225\"
+              height=\"225\">" %>
           </div>
-
-          <div class="card-info">
-            <ul class="p-3">
-              <li class="list-unstyled"><strong>type:</strong> <%= @bike.bike_type %></li>
-              <li class="list-unstyled"><strong>brand:</strong> <%= @bike.brand %></li>
-              <li class="list-unstyled"><strong>year:</strong> <%= @bike.year %></li>
-              <li class="list-unstyled"><strong>frame:</strong> <%= @bike.frame_size %></li>
-              <li class="list-unstyled"><strong>number of seats:</strong> <%= @bike.seat_count %></li>
-              <li class="list-unstyled"><strong>price:</strong> $<%= @bike.price %>/hour</li>
-            </ul>
+          <div class="px-3 mt-3">
+            <h2 class="card-title">
+            <%= @bike.brand %>
+            <%= @bike.bike_type  %>
+            <small>(<%= @bike.year %>)</small>
+            </h2>
+            <div>
+            <i class="fas fa-map-marker-alt red"></i> <%= @bike.location %><br>
+            <i class="fas fa-arrows-alt-v"></i> <%= @bike.frame_size %>cm frame size<br>
+            <% if @bike.frame_size == 1 %>
+              <i class="fas fa-user"></i> 1 seater<br>
+            <% else %>
+              <i class="fas fa-user-friends"></i> 2 seater<br>
+            <% end %><br>
+              <strong class="blue">$<%= @bike.price %>/hr</strong>
           </div>
         </div>
 
+        </div>
+
+        <div class="m-3">
+          <!--  using flatpickr for this
+                config in application.js / application.css -->
         <%= simple_form_for [ @bike, @rental ] do |f| %>
-          <%= f.input :rental_start, as: :datetime, :minute_step => 15 %>
-          <%= f.input :rental_end, as: :datetime, :minute_step => 15 %>
+          <%= f.input :rental_start,
+              as: :string %>
+          <%= f.input :rental_end,
+              as: :string %>
           <%= f.input :message %>
-          <%= f.button :submit %>
+          <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
-
-
-        <div class="card-footer d-flex justify-content-center p-4">
-          <%= link_to "message owner", dashboard_path, class: "btn btn-primary" %>
-          <button id="checkout" class="btn btn-success ml-2" data-toggle="modal" data-target="#confirmationModal">checkout</button>
         </div>
       </div>
     </div>
