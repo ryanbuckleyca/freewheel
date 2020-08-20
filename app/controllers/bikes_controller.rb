@@ -10,15 +10,19 @@ class BikesController < ApplicationController
     else
       @bikes = Bike.all
     end
+
+    @bikes_location = Bike.geocoded
   end
 
   def show
     @bike = Bike.find(params[:id])
     @bikes = Bike.all
     @rental = Rental.new
+
+    @bikes_location = Bike.geocoded
   end
 
-  def new 
+  def new
     @bike = Bike.new
   end
 
@@ -27,7 +31,7 @@ class BikesController < ApplicationController
     @bike.user = current_user
     if @bike.save
       redirect_to bike_path(@bike)
-    else 
+    else
       render :new
     end
   end
