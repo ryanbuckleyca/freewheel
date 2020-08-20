@@ -20,7 +20,7 @@
             <div>
             <i class="fas fa-map-marker-alt red"></i> <%= @bike.location %><br>
             <i class="fas fa-arrows-alt-v"></i> <%= @bike.frame_size %>cm frame size<br>
-            <% if @bike.frame_size == 1 %>
+            <% if @bike.seat_count == 1 %>
               <i class="fas fa-user"></i> 1 seater<br>
             <% else %>
               <i class="fas fa-user-friends"></i> 2 seater<br>
