@@ -4,14 +4,18 @@
     <!-- user info card -->
 
     <div class="col-12 col-md-4 mt-4 mb-4">
-      <div class="card-product">
-      <img src="https://avatars2.githubusercontent.com/u/48371025?s=460&u=02dd54122579ec71d1ad246da2bffef2b9467945&v=4"/>
-        <div class="card-product-infos">
-          <h2><%= @user.first_name + @user.last_name %></h2>
-          <p><%= @user.email %></p>
-          <p><%= @user.phone_number %></p>
-          <a href="#">Edit my profile</a><br>
-          <a href="#">Delete my account</a><br>
+      <div class="card-profile">
+        <div class="card-profile-details">
+          <img src="https://avatars2.githubusercontent.com/u/48371025?s=460&u=02dd54122579ec71d1ad246da2bffef2b9467945&v=4"/>
+          <div class="card-profile-infos">
+            <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+            <p><%= @user.email %></p>
+            <p><%= @user.phone_number %></p>
+            <div class="card-profile-actions">
+              <a href="#">Edit my profile</a><br />
+              <a href="#">Delete my account</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

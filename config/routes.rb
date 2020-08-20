@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     #in case we want to add reviews
     #resources :reviews, only: [ :new, :create ]
   end
-  resources :rentals, only: [ :show, :update, :index ]
+  resources :rentals, only: [ :show, :update, :index, :create ]
 end

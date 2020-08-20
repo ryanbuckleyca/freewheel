@@ -7,8 +7,20 @@ class RentalsController < ApplicationController
     @rental = Rental.find(@rental)
   end
 
-  # need to add a method update
-  # and then confirmed
+  def create
+    @bikes = Bike.all
+    @bike = Bike.find(params[:bike_id])
+
+    @rental = Rental.create(rental_params)
+    @rental.bike = @bike
+    @rental.user = current_user
+
+    if @rental.save
+      redirect_to dashboard_path
+    else
+      render "bikes/show"
+    end
+  end
 
   private
 

@@ -1,9 +1,9 @@
 <div class="container mt-3">
 
-<h1><%= @query.nil? ? "All bikes:" : "Bikes matching '#{@query}'" %></h1>
+  <h1><%= @query.nil? ? "All bikes:" : "Bikes matching '#{@query}'" %></h1>
 
-<%= render 'shared/searchbar' unless request.env['PATH_INFO'] == "/" %>
+  <%= render 'shared/searchbar' unless request.env['PATH_INFO'] == "/" %>
 
-<%= render 'shared/bikesgrid' %>
+  <%= render 'shared/bikesgrid' %>
 
 </div>
