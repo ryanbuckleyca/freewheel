@@ -2,8 +2,7 @@
   justify-content: space-between;
   background: $blue;
   color: white !important;
-  height: 65px;
-  padding: 0 20px;
+  padding: 10px 20px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,8 +10,9 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 50px;
-  margin-bottom: 8px;
+  position: relative;
+  width: 35px;
+  bottom: 2px;
   filter: brightness(100);
 }
 .navbar-brand {
@@ -23,4 +23,7 @@
     display: inline-block;
     margin: 0 8px;
   }
+}
+.nav-item.dropdown {
+  margin-left: 5px;
 }
