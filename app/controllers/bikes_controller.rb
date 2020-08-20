@@ -1,5 +1,6 @@
 class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home, :bikes ]
+  before_action :user_location
 
   def index
     if params[:query].present?
@@ -37,6 +38,10 @@ class BikesController < ApplicationController
   end
 
   private
+
+  def user_location
+    @user_location = [ request.location.latitude, request.location.longitude ]
+  end
 
   def bike_params
     params.require(:bike).permit(:frame_size, :seat_count, :bike_type, :year, :brand, :price, :location, :available_for_rent, :photo)
