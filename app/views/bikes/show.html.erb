@@ -20,6 +20,15 @@
             </ul>
           </div>
         </div>
+
+        <%= simple_form_for [ @bike, @rental ] do |f| %>
+          <%= f.input :rental_start, as: :datetime, :minute_step => 15 %>
+          <%= f.input :rental_end, as: :datetime, :minute_step => 15 %>
+          <%= f.input :message %>
+          <%= f.button :submit %>
+        <% end %>
+
+
         <div class="card-footer d-flex justify-content-center p-4">
           <%= link_to "message owner", dashboard_path, class: "btn btn-primary" %>
           <button id="checkout" class="btn btn-success ml-2" data-toggle="modal" data-target="#confirmationModal">checkout</button>
