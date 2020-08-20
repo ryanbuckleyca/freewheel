@@ -20,8 +20,17 @@ class RentalsController < ApplicationController
     else
       render "bikes/show"
     end
+  end
+
+  def mark_as_accepted
 
   end
+
+  def mark_as_rejected
+
+  end
+
+
 
   private
 
