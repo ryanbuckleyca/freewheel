@@ -24,6 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import flatpickr from 'flatpickr';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -31,4 +32,14 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  flatpickr('#rental_rental_start', {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    minDate: "today",
+  });
+  flatpickr('#rental_rental_end', {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    minDate: "today",
+  });
 });
