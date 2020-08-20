@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'dashboard', to: 'pages#dashboard'
-  patch "/accept_booking", to: "rentals#mark_as_accepted", as: :accepted
-  patch "/reject_booking", to: "rentals#mark_as_rejected", as: :rejected
+  patch "rentals/:id/accept_booking", to: "rentals#mark_as_accepted", as: :accepted
+  patch "rentals/:id/reject_booking", to: "rentals#mark_as_rejected", as: :rejected
 
   resources :users, only: [ :destroy, :update ]
   resources :bikes do
