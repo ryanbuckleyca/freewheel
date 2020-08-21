@@ -22,6 +22,7 @@ class BikesController < ApplicationController
 
   def new
     @bike = Bike.new
+    @marker = { lat: @user_location[0], lng: @user_location[1] }
   end
 
   def create
