@@ -36,14 +36,20 @@
           <div class="align-center">
             <img src="https://source.unsplash.com/100x100/?<%= bike.bike_type.gsub(/\s/, ',').to_s + ",bicycle" %>" width="100" height="100" alt="bike">
           </div>
-          <div class="px-3">
+          <div class="px-3 w-100">
             <h2 class="card-title">
               <%= bike.brand %> <%= bike.bike_type %> <small>(<%= bike.year %>)</small>
             </h2>
             <div>
               <i class="fas fa-map-marker-alt red"></i> <%= bike.location %><br>
               <i class="fas fa-arrows-alt-v"></i> <%= bike.frame_size %>cm frame<br>
-              <strong class="blue">$<%= bike.price %>/hr</strong>
+              <div class="d-flex justify-content-between">
+                <strong class="blue">$<%= bike.price %>/hr</strong>
+                <div>
+                  <i class="fas fa-edit blue"></i>
+                  <i class="far fa-trash-alt red"></i>
+              </div>
+              </div>
             </div>
           </div>
         </div>
