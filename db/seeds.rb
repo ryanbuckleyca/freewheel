@@ -68,7 +68,7 @@ def generate_bikes(times)
                         bike_type: seats == 2 ? 'Tandem' : BIKE_TYPES.sample,
                         year: rand(1) < 0.1 ? rand(1900..1990) : rand(1991..2020),
                         brand: BIKE_BRANDS.sample, price: rand(3..5),
-                        location: MTL_ADDRESSES.sample, available_for_rent: true)
+                        location: MTL_ADDRESSES[i], available_for_rent: true)
     new_bike.user = User.all.sample
     new_bike.save!
   end
@@ -105,7 +105,7 @@ end
 # RUN SEEDS
 
 generate_users(20)
-generate_bikes(20)
+generate_bikes(MTL_ADDRESSES.size)
 generate_rentals(15)
 
 
