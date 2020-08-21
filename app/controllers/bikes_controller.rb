@@ -28,7 +28,7 @@ class BikesController < ApplicationController
     @bike = Bike.new(bike_params)
     @bike.user = current_user
     if @bike.save
-      redirect_to bike_path(@bike)
+      redirect_to dashboard_path
     else
       render :new
     end
