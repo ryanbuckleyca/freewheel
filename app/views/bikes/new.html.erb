@@ -4,6 +4,7 @@
     <div class="card p-2">
       <div class="m-3">
         <%= simple_form_for(@bike) do |f|  %>
+          <%= f.input :location, id: "bike_location" %>
 
           <%= f.input :brand %>
 
@@ -15,9 +16,8 @@
 
           <%= f.input :price %>
 
-          <%= f.input :location, id: "bike_location" %>
+          <%= f.input :available_for_rent, :as => :hidden, :input_html => { :value => true } %>
 
-          <%= f.input :available_for_rent, as: :boolean, checked_value: true, unchecked_value: false %>
           <%= f.input :photo, as: :file %>
           <%= f.submit "Post Bike", class: "btn btn-primary" %>
         <% end  %>
@@ -38,7 +38,29 @@
 
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 <script>
-      var placesAutocomplete = places({
-        container: document.querySelector('#bike_location')
-      });
+  const apiKey = '3058c1596485038bb45e505a4f9b4f03';
+  let bike_loc = document.querySelector('#bike_location');
+  let map = document.querySelector('#map');
+  let url = `http://api.openweathermap.org/data/2.5/weather?&appid=${apiKey}&units=metric&q=${bike_loc.value}`;
+
+  var placesAutocomplete = places({
+    container: bike_loc
+  });
+
+  const callAPI = (url) => {
+  fetch(url)
+    .then(response => response.json())
+    .then((data) => {
+      lon = data['features'][0]['center'][0];
+      lat = data['features'][0]['center'][0];
+      markers = { lat: lat, lng: lon }
+      console.log(markers)
+      map.setAttribute('data-markers', markers.to_json);
+    });
+  };
+
+  bike_loc.addEventListener('blur', (e) => {
+    callAPI(`https://api.mapbox.com/geocoding/v5/mapbox.places/${bike_loc.value}.json?access_token=pk.eyJ1IjoieWVzc2hlY29kZSIsImEiOiJja2UzOHRicmUwNHYzMnJwcTl1YjBvdW15In0.4SgLEVv2ZyMHtfCcxYJhGQ`);
+  });
+
 </script>
