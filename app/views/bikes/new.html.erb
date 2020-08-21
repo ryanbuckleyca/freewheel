@@ -19,7 +19,6 @@
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 <script>
       var placesAutocomplete = places({
-        appId: <%= ENV['ALGOLIA_APP_ID'] %>,
-        apiKey: <%= ENV['ALGOLIA_SEARCH_ONLY_API_KEY'] %>,
         container: document.querySelector('#bike_location')
       });
+</script>
