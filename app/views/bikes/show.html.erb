@@ -34,23 +34,23 @@
         <div class="m-3">
           <!--  using flatpickr for this
                 config in application.js / application.css -->
-        <%= simple_form_for [ @bike, @rental ] do |f| %>
-          <%= f.input :rental_start,
-              as: :string %>
-          <%= f.input :rental_end,
-              as: :string %>
-          <%= f.input :message %>
-          <%= f.button :submit, class: "btn btn-primary" %>
-        <% end %>
+          <%= simple_form_for [ @bike, @rental ] do |f| %>
+            <%= f.input :rental_start,
+                as: :string %>
+            <%= f.input :rental_end,
+                as: :string %>
+            <%= f.input :message %>
+            <%= f.button :submit, class: "btn btn-primary" %>
+          <% end %>
 
-      <!-- map -->
-      <!-- mapbox config is under application.js and plugins/ini_mapbox.js -->
-        <div id="map"
-         style="width: 100%; height: 400px;"
-         data-markers="<%= @marker.to_json %>"
-         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-         </div>
-      <!-- end of map -->
+          <!-- map -->
+          <!-- mapbox config is under application.js and plugins/ini_mapbox.js -->
+            <div id="map"
+             style="width: 100%; height: 400px;"
+             data-markers="<%= @marker.to_json %>"
+             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+          <!-- end of map -->
 
         </div>
       </div>
