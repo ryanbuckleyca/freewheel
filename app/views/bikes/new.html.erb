@@ -12,10 +12,18 @@
   <%= f.input :price %>
 
 
-  <%= f.input :location %>
+  <%= f.input :location, id: "bike_location" %>
 
 
   <%= f.input :available_for_rent, as: :boolean, checked_value: true, unchecked_value: false %>
   <%= f.input :photo, as: :file %>
   <%= f.submit "Post Bike" %>
 <% end  %>
+
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+<script>
+      var placesAutocomplete = places({
+        appId: <%= ENV['ALGOLIA_APP_ID'] %>,
+        apiKey: <%= ENV['ALGOLIA_SEARCH_ONLY_API_KEY'] %>,
+        container: document.querySelector('#bike_location')
+      });
