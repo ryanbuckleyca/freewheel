@@ -6,10 +6,12 @@
         <div class="card p-2">
           <div class="card-details">
             <div class="align-center mt-3 ml-3">
-              <%= raw "<img src=\"https://source.unsplash.com/300x300/?" +
-                @bike.bike_type.gsub(/\s/, ',').to_s +
-                ",bicycle\" alt=\"bike\" width=\"225\"
-                height=\"225\">" %>
+              <%= if @bike.has_attribute? :photo
+                cl_image_tag @bike.photo.key, width: 225, height: 225, crop: :fill
+              else
+                raw "<img src=\"https://source.unsplash.com/225x225/?" + @bike.bike_type.gsub(/\s/, ',').to_s + ",bicycle\" alt=\"bike\" width=\"225\" height=\"225\">"
+              end
+              raise %>
             </div>
             <div class="px-3 mt-3">
               <h2 class="card-title">
@@ -21,11 +23,7 @@
               <div>
               <i class="fas fa-map-marker-alt red"></i> <%= @bike.location %><br>
               <i class="fas fa-arrows-alt-v"></i> <%= @bike.frame_size %>cm frame size<br>
-              <% if @bike.seat_count == 1 %>
-                <i class="fas fa-user"></i> 1 seater<br>
-              <% else %>
-                <i class="fas fa-user-friends"></i> 2 seater<br>
-              <% end %><br>
+              <br>
                 <strong class="blue">$<%= @bike.price %>/hr</strong>
               </div>
             </div>

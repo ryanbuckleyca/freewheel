@@ -47,15 +47,27 @@
     container: bike_loc
   });
 
+  const drawMap = (lon, lat) => {
+    mapboxgl.accessToken = token;
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/light-v10', // stylesheet location
+      center: [lon, lat], // starting position [lng, lat]
+      zoom: 9 // starting zoom
+    });
+    new mapboxgl.Marker()
+      .setLngLat([lon, lat])
+      .addTo(map);
+  };
+
   const callAPI = (url) => {
   fetch(url)
     .then(response => response.json())
     .then((data) => {
       lon = data['features'][0]['center'][0];
       lat = data['features'][0]['center'][0];
-      markers = { lat: lat, lng: lon }
+      drapMap(lat, lon)
       console.log(markers)
-      map.setAttribute('data-markers', markers.to_json);
     });
   };
 
