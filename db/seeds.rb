@@ -48,6 +48,15 @@ ryan_bike = Bike.new(frame_size: 72, seat_count: 1, bike_type: 'Fixed Gear',
 ryan_bike.user = USER_RYAN
 ryan_bike.save!
 
+USER_NIRALI = User.create!(email: 'niralipatel@gmail.com',
+                          first_name: 'Nirali', last_name: 'Patel',
+                          phone_number: '(123) 456-7890', password: '123456')
+nirali_bike = Bike.new(frame_size: 52, seat_count: 1, bike_type: 'Cruiser',
+                       year: 2005, brand: 'Schwinn', price: 7,
+                       location: '1600 Pennsylvania Ave, Washington DC', available_for_rent: true)
+nirali_bike.user = USER_NIRALI
+nirali_bike.save!
+
 
 def generate_users(times)
   puts "generating #{times} users..."
