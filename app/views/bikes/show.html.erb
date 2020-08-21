@@ -1,8 +1,4 @@
-  <!-- bike details   -->
-<div class="banner" style="padding: 5vh 0 15vh; background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0)), url(https://res.cloudinary.com/ryanbuckleyca/image/upload/v1597859027/Screen_Shot_2020-08-19_at_1.42.12_PM_lcvndv.png);">
-
-  <div class="row justify-content-center">
-    <div class="col-8 col-6-md text-align-center">
+    <div class="col-12 col-6-md text-align-center">
       <div class="card row mb-4 px-3 mx-auto shadow-sm bg-white rounded" style="max-width: 550px">
         <div class="card-details m-3">
           <div class="align-center mt-3">
@@ -42,48 +38,18 @@
             <%= f.input :message %>
             <%= f.button :submit, class: "btn btn-primary" %>
           <% end %>
-
-          <!-- map -->
-          <!-- mapbox config is under application.js and plugins/ini_mapbox.js -->
-            <div id="map"
-             style="width: 100%; height: 400px;"
-             data-markers="<%= @marker.to_json %>"
-             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
-          <!-- end of map -->
-
         </div>
+      </div>
+
+      <div id="map"
+       style="width: 100%; height: 400px;"
+       data-markers="<%= @marker.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
   </div>
 </div>
 
-<!-- confirmation page (modal) -->
-<div class="container">
-  <div class="col-12">
-
-    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"></h5>
-            <button action="" type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <h2>Confirmation</h2>
-            <p>Your rental request has been submitted. To check the
-              status of your request, please visit your
-              <%= link_to "dashboard", dashboard_path  %>
-            </p>
-          </div>
-          <div class="modal-footer">
-            <%= link_to "see more bikes", bikes_path, class: "btn btn-primary" %>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- see more bikes -->
 
