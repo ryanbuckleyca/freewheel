@@ -47,6 +47,6 @@ document.addEventListener('turbolinks:load', () => {
     dateFormat: "Y-m-d H:i",
     minDate: "today",
   });
-  initAlgoliaPlaces();
   initMapbox();
+  initAlgoliaPlaces();
 });

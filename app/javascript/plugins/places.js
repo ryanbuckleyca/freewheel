@@ -1,9 +1,11 @@
 import places from 'places.js';
 const initAlgoliaPlaces = () => {
-  var places = require('places.js');
-  var placesAutocomplete = places({
-  container: document.querySelector('#bike_location')
-  });
+  const input = document.querySelector('#bike_location');
+  if (input) {
+    var placesAutocomplete = places({
+      container: input
+    });
+  }
 }
 
-export { initAlgoliaPlaces }; 
+export { initAlgoliaPlaces };
