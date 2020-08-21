@@ -25,6 +25,22 @@ body {
 .blue {
   color: $blue;
 }
+.blue-btn {
+  border: 1px $blue solid;
+  border-radius: 5px;
+  &:hover {
+    background: $blue;
+    color: white;
+  }
+}
+.red-btn {
+  border: 1px $red solid;
+  border-radius: 5px;
+  &:hover {
+    background: $red;
+    color: white;
+  }
+}
 
 h1 {
   font-size: 28px;
