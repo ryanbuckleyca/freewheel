@@ -20,10 +20,23 @@ class RentalsController < ApplicationController
     else
       render "bikes/show"
     end
-
   end
 
-  private
+  def mark_as_accepted
+    @rental = Rental.find(params[:id])
+    @rental.accept!
+    @rental.save
+    redirect_to dashboard_path
+  end
+
+  def mark_as_rejected
+    @rental = Rental.find(params[:id])
+    @rental.reject!
+    @rental.save
+    redirect_to dashboard_path
+  end
+
+private
 
   def rental_params
     params.require(:rental).permit(:rental_start, :rental_end, :message, :booking_confirmed)

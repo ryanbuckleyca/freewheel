@@ -24,6 +24,9 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import flatpickr from 'flatpickr';
+import mapboxgl from 'mapbox-gl';
+import { initMapbox } from '../plugins/init_mapbox';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -34,6 +37,16 @@ import { algoliaSearch } from "../plugins/places.js";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  console.log("javascript init");
   placesAutocomplete();
+  flatpickr('#rental_rental_start', {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    minDate: "today",
+  });
+  flatpickr('#rental_rental_end', {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    minDate: "today",
+  });
+  initMapbox();
 });

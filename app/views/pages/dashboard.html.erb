@@ -34,6 +34,34 @@
       <% end %>
     </span>
 
+    <h3> My rentals:</h3>
+      <div>
+        <% @my_rentals.each do |rental|%>
+        <div class="card mb-2 p-2">
+          <p><%= rental.bike.brand %></p>
+          <p><%= rental.rental_start.strftime("%m/%d/%y at %I:%M%p")%></p>
+          <p><%= rental.rental_end.strftime("%m/%d/%y at %I:%M%p") %></p>
+          <p><%= rental.booking_confirmed %></p>
+          <p><%= rental.message %></p>
+        </div>
+        <% end %>
+      </div>
+    <hr>
+
+    <h3> Rental Request Received:</h3>
+      <div>
+        <% @rental_request_received.each do |rental|%>
+        <div class="card mb-2 p-2">
+          <p><%= rental.bike.brand %></p>
+          <p><%= rental.rental_start.strftime("%m/%d/%y at %I:%M%p")%></p>
+          <p><%= rental.rental_end.strftime("%m/%d/%y at %I:%M%p") %></p>
+          <p><%= rental.booking_confirmed %></p>
+          <p><%= rental.message %></p>
+          <%= link_to "Accepted", accepted_path(rental), method: :patch %>
+          <%= link_to "Rejected", rejected_path(rental), method: :patch %>
+        </div>
+        <% end %>
+      </div>
     <hr>
 
     <h3> My bikes rented </h3>
