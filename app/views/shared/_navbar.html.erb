@@ -23,7 +23,7 @@
           <%= link_to "Messages", dashboard_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <% if User.name == "Ryan" %>
+          <% if @user.first_name == "Ryan" %>
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ryanbuckleyca", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/mynameisnirali", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
