@@ -11,16 +11,13 @@ class BikesController < ApplicationController
     else
       @bikes = Bike.all
     end
-
-    @bikes_location = Bike.geocoded
   end
 
   def show
     @bike = Bike.find(params[:id])
     @bikes = Bike.all
     @rental = Rental.new
-
-    @bikes_location = Bike.geocoded
+    @marker = { lat: @bike.latitude, lng: @bike.longitude }
   end
 
   def new

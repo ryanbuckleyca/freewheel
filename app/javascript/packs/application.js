@@ -25,6 +25,8 @@ require("channels")
 // External imports
 import "bootstrap";
 import flatpickr from 'flatpickr';
+import mapboxgl from 'mapbox-gl';
+import { initMapbox } from '../plugins/init_mapbox';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -42,4 +44,7 @@ document.addEventListener('turbolinks:load', () => {
     dateFormat: "Y-m-d H:i",
     minDate: "today",
   });
+  initMapbox();
 });
+
+
