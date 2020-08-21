@@ -37,7 +37,6 @@ import { initAlgoliaPlaces } from "../plugins/places.js";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  initMapbox();
   flatpickr('#rental_rental_start', {
     enableTime: true,
     dateFormat: "Y-m-d H:i",
@@ -49,4 +48,5 @@ document.addEventListener('turbolinks:load', () => {
     minDate: "today",
   });
   initAlgoliaPlaces();
+  initMapbox();
 });
