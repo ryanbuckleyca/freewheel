@@ -19,16 +19,20 @@ BIKE_BRANDS = ['Bianchi', '6KU', 'Colnago', 'Co-op Cycles',
                'Orbea', 'Prevelo', 'Priority', 'Pure-Fix', 'Rad Power', 'Raleigh',
                'Sage Titanium', 'Salsa Cycles', 'Santa Cruz', 'Schwinn',
                'Specialized', 'Surly', 'Tommaso', 'Trek', 'woom', 'Yeti Cycles']
-MTL_ADDRESSES = ['6817 43 Av, Montreal QC', '7503 Rue St Denis, Montreal QC',
-                 '251 Av Percival Montreal Ouest QC', '7766 George Street Lasalle QC',
-                 '11727 Rue Notre Dame E, Montreal QC', '5745 17 Av, Montreal QC',
-                 '3708 Rue St Hubert, Montreal QC', '800 Rue Gagne Lasalle QC',
-                 '4430 Ste Catherine Street O Westmount QC', '5930 Rue Hurteau, Montreal QC',
-                 '717 Charron Street Lasalle QC', '2630 St Germain Street, Montreal QC',
-                 '6730 44 Av, Montreal QC', '1940 Jolicoeur Street, Montreal QC',
-                 '16 Kenaston Av Mont Royal QC', '5240 Randall Av, Montreal QC',
-                 '3555 Edouard-Montpetit, Montreal QC', '7299 de l\'Elysee, Saint-Léonard QC',
-                 '12225 Av de Saint-Castin, Montreal QC', '391 Rue de la Congrégation, Montreal QC']
+
+MTL_ADDRESSES = [ '7503 Rue St Denis, Montreal QC',
+                  '251 Av Percival Montreal Ouest QC',
+                  '11727 Rue Notre Dame E, Montreal QC',
+                  '3708 Rue St Hubert, Montreal QC',
+                  '800 Rue Gagne Lasalle QC',
+                  '5930 Rue Hurteau, Montreal QC',
+                  '6730 44 Av, Montreal QC',
+                  '1940 Jolicoeur Street, Montreal QC',
+                  '5240 Randall Av, Montreal QC',
+                  '3555 Edouard-Montpetit, Montreal QC',
+                  '12225 Av de Saint-Castin, Montreal QC',
+                  '391 Rue de la Congrégation, Montreal QC']
+
 MTL_PHONES = ['(514) 376-8344', '(514) 279-7016', '(514) 482-1925', '(514) 366-7190',
               '(514) 680-4011', '(514) 593-0995', '(514) 282-9395', '(514) 769-5499',
               '(514) 488-4685', '(514) 767-3902', '(438) 380-0604', '(514) 253-8475',
@@ -40,7 +44,7 @@ USER_RYAN = User.create!(email: 'ryanbuckley@gmail.com',
                           phone_number: '(347) 272-0159', password: '123456')
 ryan_bike = Bike.new(frame_size: 72, seat_count: 1, bike_type: 'Fixed Gear',
                        year: 2005, brand: 'Peugeot', price: 4,
-                       location: '1200 Rue Atatken, Montreal QC', available_for_rent: true)
+                       location: '3708 Rue St Hubert, Montreal QC', available_for_rent: true)
 ryan_bike.user = USER_RYAN
 ryan_bike.save!
 
@@ -103,7 +107,7 @@ end
 # RUN SEEDS
 
 generate_users(20)
-generate_bikes(20)
+generate_bikes(MTL_ADDRESSES.size)
 generate_rentals(15)
 
 
