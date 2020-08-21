@@ -1,20 +1,40 @@
-<%= simple_form_for(@bike) do |f|  %>
-  <%= f.input :frame_size %>
+<div class="container mt-3">
+  <div class="row justify-content-center">
+   <div class="col-sm-12 col-md-6">
+    <div class="card p-2">
+      <div class="m-3">
+        <%= simple_form_for(@bike) do |f|  %>
 
-  <%= f.input :bike_type %>
+          <%= f.input :brand %>
 
-  <%= f.input :year %>
+          <%= f.input :bike_type %>
 
-  <%= f.input :brand %>
+          <%= f.input :frame_size %>
 
-  <%= f.input :price %>
+          <%= f.input :year %>
 
-  <%= f.input :location, id: "bike_location" %>
+          <%= f.input :price %>
 
-  <%= f.input :available_for_rent, as: :boolean, checked_value: true, unchecked_value: false %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "Post Bike" %>
-<% end  %>
+          <%= f.input :location, id: "bike_location" %>
+
+          <%= f.input :available_for_rent, as: :boolean, checked_value: true, unchecked_value: false %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit "Post Bike", class: "btn btn-primary" %>
+        <% end  %>
+      </div>
+    </div>
+  </div>
+
+  <!-- map -->
+   <div class="col-sm-12 col-md-6">
+     <div id="map"
+     style="width: 100%; height: 400px;"
+     data-markers="<%= @marker.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+   </div>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 <script>
