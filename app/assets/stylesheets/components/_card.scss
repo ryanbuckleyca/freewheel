@@ -15,7 +15,7 @@
 .card-details {
   display: flex;
 }
-@media(max-width: 650px) {
+@media(max-width: 991px) {
   .card-details {
     flex-direction: column !important;
     align-items: center;

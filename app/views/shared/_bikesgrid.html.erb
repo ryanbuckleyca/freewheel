@@ -2,11 +2,7 @@
   <% @bikes.each do |bike| %>
     <div class="card-group col-lg-3 col-md-4 col-sm-6 offset-sm-0 col-10 offset-1">
       <%= link_to bike_path(bike), class: "card my-3" do %>
-        <%= if bike.has_attribute? :photo
-          cl_image_tag bike.photo.key, width: 225, height: 225, crop: :fill, class: 'card-img-top'
-        else
-          raw "<img class=\"card-img-top\" src=\"https://source.unsplash.com/225x225/?"+ bike.bike_type.gsub(/\s/, ',').to_s + ",bicycle\" alt=\"bike\" width=\"225\" height=\"225\">"
-        end %>
+        <%= raw bike.image(225, 225, 'card-img-top') %>
         <div class="card-body">
           <h2 class="card-title">
           <%= bike.brand %>

@@ -6,12 +6,7 @@
         <div class="card p-2">
           <div class="card-details">
             <div class="align-center mt-3 ml-3">
-              <%= if @bike.has_attribute? :photo
-                cl_image_tag @bike.photo.key, width: 225, height: 225, crop: :fill
-              else
-                raw "<img src=\"https://source.unsplash.com/225x225/?" + @bike.bike_type.gsub(/\s/, ',').to_s + ",bicycle\" alt=\"bike\" width=\"225\" height=\"225\">"
-              end
-              raise %>
+              <%= raw @bike.image(225, 225, '') %>
             </div>
             <div class="px-3 mt-3">
               <h2 class="card-title">
@@ -56,10 +51,11 @@
    </div>
 
     <!-- see more bikes -->
-
+    <div class="container">
     <h2 class="mb-4 mt-4 ml-4">Other bikes near you</h2>
 
     <%= render 'shared/bikesgrid' %>
+    </div>
   </div>
 </div>
 
