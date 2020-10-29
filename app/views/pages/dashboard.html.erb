@@ -34,11 +34,7 @@
       <div class="card mb-2 p-0">
         <div class="card-profile-details m-3 align-items-start" style="display:flex !important">
           <div class="align-left">
-          <%= if bike.has_attribute? :photo
-            cl_image_tag bike.photo.key, width: 100, height: 100, crop: :fill
-          else
-            raw "<img src=\"https://source.unsplash.com/100x100/?"+ bike.bike_type.gsub(/\s/, ',').to_s + ",bicycle\" alt=\"bike\" width=\"100\" height=\"100\">"
-          end %>
+            <%= raw bike.image(225, 225, '') %>
           </div>
           <div class="px-3 w-100">
             <h2 class="card-title">
@@ -68,7 +64,7 @@
         <div class="card mb-2 p-0">
           <div class="card-details m-3">
             <div class="align-center">
-              <img src="https://source.unsplash.com/100x100/?<%= rental.bike.bike_type.gsub(/\s/, ',').to_s + ",bicycle" %>" width="100" height="100" alt="bike">
+              <%= raw rental.bike.image(225, 225) %>
             </div>
             <div class="px-3">
               <h2 class="card-title">
@@ -103,7 +99,7 @@
         <div class="card mb-2 p-0">
           <div class="card-details m-3">
             <div class="align-center">
-              <img src="https://source.unsplash.com/100x100/?<%= rental.bike.bike_type.gsub(/\s/, ',').to_s + ",bicycle" %>" width="100" height="100" alt="bike">
+              <%= raw rental.bike.image %>
             </div>
             <!-- booking-details -->
             <div class="px-3">
