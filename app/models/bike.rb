@@ -7,7 +7,8 @@ class Bike < ApplicationRecord
     if photo.attached?
       cl_image_tag photo.key, height: height, width: width, crop: :fill, class: classname
     else
-      "<img src='https://source.unsplash.com/#{width}x#{height}/?#{bike_type.gsub(/\s/, ',')},bicycle' alt='bike' class='#{classname}' width='#{width}' height='#{height}'>"
+      url = "https://source.unsplash.com/#{width}x#{height}/?#{bike_type.gsub(/\s/, ',')},bicycle"
+      "<img src='#{url}' alt='bike' class='#{classname}' width='#{width}' height='#{height}'>"
     end
   end
 

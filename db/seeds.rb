@@ -95,6 +95,8 @@ def generate_rentals(times)
                  'Hey! Love this bike. Looking forward to zipping around!',
                  'Coooool. Glad I found this!',
                  'Hell yeah, sweet wheels!',
+                 'This is great, I am interested in this awesome bike!',
+                 'Such a cool ride. I would love to take this for a spin today',
                  'Do you mind if I take this off-roading?',
                  'Hiii, is the seat adjustable at all on this? I am 80cm and not sure it would fit otherwise.']
       rental_start = DateTime.new(2020, rand(8..10), rand(1..29),
