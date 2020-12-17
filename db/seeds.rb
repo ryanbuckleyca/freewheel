@@ -91,8 +91,7 @@ def generate_rentals(times)
   times.times do
       user = User.all.sample
       bike = Bike.all.sample
-      message = [Faker::Quote.famous_last_words,
-                 'Hey! Love this bike. Looking forward to zipping around!',
+      message = ['Hey! Love this bike. Looking forward to zipping around!',
                  'Coooool. Glad I found this!',
                  'Hell yeah, sweet wheels!',
                  'Finally, something with style :)',
