@@ -44,7 +44,7 @@ USER_RYAN = User.create!(email: 'ryanbuckley@gmail.com',
                           phone_number: '(347) 272-0159', password: '123456')
 ryan_bike = Bike.new(frame_size: 72, seat_count: 1, bike_type: 'Fixed Gear',
                        year: 2005, brand: 'Peugeot', price: 4,
-                       location: '3708 Rue St Hubert, Montreal QC', available_for_rent: true)
+                       location: '4107 Boul. St. Laurent, Montreal QC', available_for_rent: true)
 ryan_bike.user = USER_RYAN
 ryan_bike.save!
 
