@@ -95,6 +95,7 @@ def generate_rentals(times)
                  'Hey! Love this bike. Looking forward to zipping around!',
                  'Coooool. Glad I found this!',
                  'Hell yeah, sweet wheels!',
+                 'Finally, something with style :)',
                  'This is great, I am interested in this awesome bike!',
                  'Such a cool ride. I would love to take this for a spin today',
                  'Do you mind if I take this off-roading?',
