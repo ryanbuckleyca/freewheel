@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: freewheel_production
   username: freewheel
   password: <%= ENV['FREEWHEEL_DATABASE_PASSWORD'] %>
