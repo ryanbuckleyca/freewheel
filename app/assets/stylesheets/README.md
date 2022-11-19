@@ -43,8 +43,8 @@ And the viewport in the layout
 <!-- app/views/layouts/application.html.erb -->
 <head>
   <!-- Add these line for detecting device width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
   <!-- [...] -->
 </head>
@@ -56,26 +56,27 @@ Make sure you change the webpack config with the following code to include jQuer
 
 ```js
 // config/webpack/environment.js
-const { environment } = require('@rails/webpacker')
+const { environment } = require("@rails/webpacker");
 
 // Bootstrap 4 has a dependency over jQuery & Popper.js:
-const webpack = require('webpack')
-environment.plugins.prepend('Provide',
+const webpack = require("webpack");
+environment.plugins.prepend(
+  "Provide",
   new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery',
-    Popper: ['popper.js', 'default']
+    $: "jquery",
+    jQuery: "jquery",
+    Popper: ["popper.js", "default"],
   })
-)
+);
 
-module.exports = environment
+module.exports = environment;
 ```
 
 Finally import bootstrap:
 
 ```js
 // app/javascript/packs/application.js
-import 'bootstrap';
+import "bootstrap";
 ```
 
 ## Adding new `.scss` files
@@ -92,7 +93,6 @@ Look at your main `application.scss` file to see how SCSS files are imported. Th
 
 // External libraries
 @import "bootstrap/scss/bootstrap"; // from the node_modules
-@import "font-awesome-sprockets";
 @import "font-awesome";
 
 // Your CSS partials
