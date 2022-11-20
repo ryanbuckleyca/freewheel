@@ -3,7 +3,7 @@ class Bike < ApplicationRecord
   has_one_attached :photo
   has_many :rentals, dependent: :destroy
 
-  def image(height = 255, width = 255, classname = nil)
+  def image(classname = nil, height = 255, width = 255)
     if photo.attached?
       cl_image_tag photo.key, height: height, width: width, crop: :fill, class: classname
     else
