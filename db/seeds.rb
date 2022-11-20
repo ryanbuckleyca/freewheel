@@ -1,10 +1,9 @@
 require 'faker'
 require 'geocoder'
 
-# DROP EVERYTHING FIRST
-Rental.destroy_all
-User.destroy_all
-Bike.destroy_all
+all_tables_are_empty = Rental.all.nil? && User.all.nil? && Bike.all.nil?
+
+return false unless all_tables_are_empty
 
 Faker::Config.locale = 'en-CA'
 
