@@ -1,7 +1,7 @@
 require 'faker'
 require 'geocoder'
 
-all_tables_are_empty = Rental.all.nil? && User.all.nil? && Bike.all.nil?
+all_tables_are_empty = Rental.all.empty? && User.all.empty? && Bike.all.empty?
 
 return false unless all_tables_are_empty
 

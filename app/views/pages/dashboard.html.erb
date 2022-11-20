@@ -61,34 +61,7 @@
     <h3> Bikes I rent from others:</h3>
       <span>
         <% @my_rentals.each do |rental|%>
-        <div class="card mb-2 p-0">
-          <div class="card-details m-3">
-            <div class="align-center">
-              <%= raw rental.bike.image %>
-            </div>
-            <div class="px-3">
-              <h2 class="card-title">
-              <%= rental.bike.brand %> <%= rental.bike.bike_type %> <small>(<%= rental.bike.year %>)</small>
-              </h2>
-              <div class="d-flex align-items-center">
-              <div>
-                <%= rental.rental_start.strftime("%m/%d/%y") %><br>
-                <%= rental.rental_start.strftime("%I:%M%p") %>
-              </div>
-              <i class="fas fa-angle-double-right blue p-2" style="font-size: 36px"></i>
-              <div>
-                <%= rental.rental_end.strftime("%m/%d/%y") %><br>
-                <%= rental.rental_end.strftime("%I:%M%p") %>
-              </div>
-              <i class="fas fa-equals blue p-3" style="font-size: 24px"></i>
-              <strong class="blue text-center">
-                <% hours = (rental.rental_end - rental.rental_start) / 3600 %>
-                $<%= rental.bike.price * hours.floor %> total
-              </strong>
-              </div>
-            </div>
-          </div>
-        </div>
+          <%= render partial: 'shared/rentalcard', locals: { rental: rental } %>
         <% end %>
       </span>
     <hr>
@@ -96,48 +69,7 @@
     <h3> Bikes others rent from me:</h3>
       <div>
         <% @rental_request_received.each do |rental|%>
-        <div class="card mb-2 p-0">
-          <div class="card-details m-3">
-            <div class="align-center">
-              <%= raw rental.bike.image %>
-            </div>
-            <!-- booking-details -->
-            <div class="px-3">
-              <h2 class="card-title">
-              <%= rental.bike.brand %> <%= rental.bike.bike_type %> <small>(<%= rental.bike.year %>)</small>
-              </h2>
-              <!-- time and price row -->
-              <div class="d-flex align-items-center">
-                <div>
-                  <%= rental.rental_start.strftime("%m/%d/%y") %><br>
-                  <%= rental.rental_start.strftime("%I:%M%p") %>
-                </div>
-                <i class="fas fa-angle-double-right blue p-2" style="font-size: 36px"></i>
-                <div>
-                  <%= rental.rental_end.strftime("%m/%d/%y") %><br>
-                  <%= rental.rental_end.strftime("%I:%M%p") %>
-                </div>
-                <i class="fas fa-equals blue p-3" style="font-size: 24px"></i>
-                <strong class="blue text-center">
-                  <% hours = (rental.rental_end - rental.rental_start) / 3600 %>
-                  $<%= rental.bike.price * hours.floor %> total
-                </strong>
-              </div>
-            </div>
-          </div>
-          <!-- booking-confirmation -->
-          <% if rental.booking_confirmed %>
-            <p class="alert-success m-0 p-3">
-              booking confirmed!
-            </p>
-          <% else %>
-          <div class="p-3">
-            <p><%= rental.message %></p>
-            <%= link_to "Accept", accepted_path(rental), method: :patch, class: 'btn blue blue-btn', data: { confirm: "Confirm this request?" } %>
-            <%= link_to "Reject", rejected_path(rental), method: :patch, class: 'btn red red-btn', data: { disable_with: "Please wait..." } %>
-            <% end %>
-          </div>
-        </div>
+          <%= render partial: 'shared/rentalcard', locals: { rental: rental } %>
         <% end %>
       </div>
 
