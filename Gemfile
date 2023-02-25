@@ -33,7 +33,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'faker'
 gem 'devise'
 gem 'autoprefixer-rails'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 4.4.0'
 gem 'simple_form'
 gem 'geocoder'
 
